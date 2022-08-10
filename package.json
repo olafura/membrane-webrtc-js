@@ -22,11 +22,12 @@
     "url": "git://github.com/membraneframework/membrane-webrtc-js.git"
   },
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "docs": "typedoc src/index.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "rimraf dist && tsc"
+    "postinstall": "ts-node tools/init",
   },
   "devDependencies": {
     "@types/uuid": "^8.3.1",
