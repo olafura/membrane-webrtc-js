@@ -27,7 +27,8 @@
     "build": "tsc --module commonjs --downlevelIteration && rollup -c rollup.config.ts",
     "docs": "typedoc src/index.ts",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@types/uuid": "^8.3.1",
